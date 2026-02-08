@@ -14,10 +14,10 @@ readme = "README.md"
 requires-python = ">=3.10"
 
 [project.scripts]
-tel-anti = "telegram_mcp_server:mcp.run"
+tel-anti = "tel_anti.telegram_mcp_server:mcp.run"
 
 [tool.hatch.build.targets.wheel]
-packages = ["telegram_mcp_server.py", "tg_state.json"]
+packages = ["src/tel_anti"]
 
 [build-system]
 requires = ["hatchling"]
