@@ -16,6 +16,9 @@ requires-python = ">=3.10"
 [project.scripts]
 tel-anti = "telegram_mcp_server:mcp.run"
 
+[tool.hatch.build.targets.wheel]
+packages = ["telegram_mcp_server.py", "tg_state.json"]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
