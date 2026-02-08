@@ -21,22 +21,11 @@ cd tel-anti
 pip install -r requirements.txt
 ```
 
-### 3. 환경 변수 설정
-`.env.example` 파일을 복사하여 `.env` 파일을 만들고 본인의 토큰 정보를 입력하세요.
-```bash
-cp .env.example .env
-# 또는 윈도우에서
-copy .env.example .env
-```
-`.env` 파일 내용:
-```env
-TELEGRAM_BOT_TOKEN=your_token_here
-TELEGRAM_CHAT_ID=your_chat_id_here
-```
+### 3. 설정 (mcp_config.json) - **가장 중요한 단계**
 
-### 4. 설정 (mcp_config.json)
+MCP 서버는 `mcp_config.json`의 `env` 설정을 통해 토큰을 전달받습니다. 아래 방법 중 하나를 선택하세요.
 
-#### 방법 A: uvx를 이용한 GitHub 직접 실행 (권장 - 가장 깔끔함)
+#### 방법 A: uvx를 이용한 GitHub 직접 실행 (권장)
 로컬에 복제할 필요 없이 GitHub에서 직접 실행합니다. `uv`가 설치되어 있어야 합니다.
 ```json
 {
@@ -62,7 +51,7 @@ TELEGRAM_CHAT_ID=your_chat_id_here
   "mcpServers": {
     "tel-anti": {
       "command": "python",
-      "args": ["/absolute/path/to/tel-anti/telegram_mcp_server.py"],
+      "args": ["/absolute/path/to/tel-anti/src/tel_anti/telegram_mcp_server.py"],
       "env": {
         "TELEGRAM_BOT_TOKEN": "your_token_here",
         "TELEGRAM_CHAT_ID": "your_chat_id_here"
@@ -71,6 +60,13 @@ TELEGRAM_CHAT_ID=your_chat_id_here
   }
 }
 ```
+
+---
+
+### 4. (선택 사항) 로컬 개발 및 단독 실행
+MCP 없이 스크립트를 직접 실행(`python telegram_mcp_server.py`)하고 싶을 때만 `.env` 파일이 필요합니다.
+1. `.env.example` -> `.env`로 복사
+2. `.env` 파일에 토큰 정보 입력
 
 ## 📚 문서
 - [아키텍처 설계](./docs/architecture.md)
