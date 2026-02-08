@@ -1,0 +1,12 @@
+# Secrets
+.env
+
+# State and Logs
+tg_state.json
+*.log
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
